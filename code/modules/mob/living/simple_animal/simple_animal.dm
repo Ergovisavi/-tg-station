@@ -83,6 +83,8 @@
 	var/dextrous_hud_type = /datum/hud/dextrous
 	var/datum/personal_crafting/handcrafting
 
+	var/list/mob_traits = list() //A list of any potential bioweapon traits that can be extracted from the mob
+
 
 /mob/living/simple_animal/New()
 	..()

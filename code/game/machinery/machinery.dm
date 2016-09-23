@@ -116,6 +116,7 @@ Class Procs:
 	var/state_open = 0
 	var/critical_machine = FALSE //If this machine is critical to station operation and should have the area be excempted from power failures.
 	var/mob/living/occupant = null
+	var/occupant_type = /mob/living/carbon
 	var/unsecuring_tool = /obj/item/weapon/wrench
 	var/interact_open = 0 // Can the machine be interacted with when in maint/when the panel is open.
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
@@ -178,12 +179,12 @@ Class Procs:
 	state_open = 0
 	density = 1
 	if(!target)
-		for(var/mob/living/carbon/C in loc)
+		for(var/mob/living/C in loc)
 			if(C.buckled || C.has_buckled_mobs())
 				continue
 			else
 				target = C
-	if(target && !target.buckled && !target.has_buckled_mobs())
+	if(target && !target.buckled && !target.has_buckled_mobs() && istype(target, occupant_type))
 		occupant = target
 		target.forceMove(src)
 	updateUsrDialog()

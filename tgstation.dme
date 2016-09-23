@@ -981,6 +981,7 @@
 #include "code\modules\awaymissions\mission_code\spacebattle.dm"
 #include "code\modules\awaymissions\mission_code\stationCollision.dm"
 #include "code\modules\awaymissions\mission_code\wildwest.dm"
+#include "code\modules\bioweapons\bioweapon_research.dm"
 #include "code\modules\cargo\console.dm"
 #include "code\modules\cargo\export_scanner.dm"
 #include "code\modules\cargo\exports.dm"
