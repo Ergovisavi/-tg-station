@@ -80,6 +80,7 @@
 	turns_per_move = 5
 	loot = list(/obj/item/weapon/ore/diamond{layer = ABOVE_MOB_LAYER},
 				/obj/item/weapon/ore/diamond{layer = ABOVE_MOB_LAYER})
+	mob_traits = list(/datum/bioweapons_trait/defense_tradeoff/burn)
 
 /obj/item/projectile/temp/basilisk
 	name = "freezing blast"
@@ -136,6 +137,7 @@
 
 	var/chase_time = 100
 	var/will_burrow = TRUE
+	mob_traits = list(/datum/bioweapons_trait/wall_smash)
 
 /mob/living/simple_animal/hostile/asteroid/goldgrub/New()
 	..()
@@ -431,6 +433,7 @@
 	var/pre_attack = 0
 	var/pre_attack_icon = "Goliath_preattack"
 	loot = list(/obj/item/stack/sheet/animalhide/goliath_hide)
+	mob_traits = list(/datum/bioweapons_trait/health_mod/major,/datum/bioweapons_trait/damage/major)
 
 /mob/living/simple_animal/hostile/asteroid/goliath/Life()
 	..()

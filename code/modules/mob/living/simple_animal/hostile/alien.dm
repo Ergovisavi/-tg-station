@@ -34,6 +34,7 @@
 	gold_core_spawnable = 0
 	death_sound = 'sound/voice/hiss6.ogg'
 	deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw..."
+	mob_traits = list(/datum/bioweapons_trait/defense_tradeoff)
 
 /mob/living/simple_animal/hostile/alien/drone
 	name = "alien drone"
@@ -93,6 +94,7 @@
 	var/plants_off = 0
 	var/egg_cooldown = 30
 	var/plant_cooldown = 30
+	mob_traits = list(/datum/bioweapons_trait/ability/shockwave)
 
 /mob/living/simple_animal/hostile/alien/queen/handle_automated_action()
 	if(!..()) //AIStatus is off

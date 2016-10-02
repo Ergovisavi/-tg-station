@@ -85,6 +85,7 @@
 	var/initialized = 0
 	var/visible_icon = 0
 	var/image/user_image = null
+	var/ignore_cameranet = FALSE
 
 /mob/camera/aiEye/remote/Destroy()
 	eye_user = null
@@ -102,7 +103,8 @@
 			return
 		T = get_turf(T)
 		loc = T
-		cameranet.visibility(src)
+		if(!ignore_cameranet)
+			cameranet.visibility(src)
 		if(visible_icon)
 			if(eye_user.client)
 				eye_user.client.images -= user_image

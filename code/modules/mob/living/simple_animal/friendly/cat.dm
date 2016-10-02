@@ -29,6 +29,7 @@
 	var/turns_since_scan = 0
 	var/mob/living/simple_animal/mouse/movement_target
 	gold_core_spawnable = 2
+	mob_traits = list(/datum/bioweapons_trait/speed)
 
 /mob/living/simple_animal/pet/cat/New()
 	..()

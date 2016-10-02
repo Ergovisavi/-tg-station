@@ -24,6 +24,7 @@
 	var/body_color //brown, gray and white, leave blank for random
 	gold_core_spawnable = 2
 	var/chew_probability = 1
+	mob_traits = list(/datum/bioweapons_trait/electricity_protection)
 
 /mob/living/simple_animal/mouse/New()
 	..()

@@ -365,10 +365,12 @@ var/next_mob_id = 0
 		else
 			M.LAssailant = usr
 
-/mob/verb/stop_pulling()
+/*/mob/verb/stop_pulling()
 	set name = "Stop Pulling"
 	set category = "IC"
+	stop_pulling()*/
 
+/mob/proc/stop_pulling()
 	if(pulling)
 		pulling.pulledby = null
 		if(ismob(pulling))

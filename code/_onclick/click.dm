@@ -85,6 +85,11 @@
 	if(next_move > world.time) // in the year 2000...
 		return
 
+	if(ismob(remote_control))
+		var/mob/R = remote_control
+		R.ClickOn(A,params)
+		return
+
 	if(istype(loc,/obj/mecha))
 		var/obj/mecha/M = loc
 		return M.click_action(A,src,params)
@@ -220,12 +225,19 @@
 	For most objects, pull
 */
 /mob/proc/CtrlClickOn(atom/A)
+	if(remote_control)
+		var/mob/R = remote_control
+		R.CtrlClickOn(A)
+		return
 	A.CtrlClick(src)
 	return
 
 /atom/proc/CtrlClick(mob/user)
 	var/mob/living/ML = user
 	if(istype(ML))
+		if(ML.pulling == src)
+			ML.stop_pulling()
+			return
 		ML.pulled(src)
 
 /*

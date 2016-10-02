@@ -49,6 +49,7 @@
 	see_invisible = SEE_INVISIBLE_MINIMUM
 	see_in_dark = 4
 	var/playable_spider = FALSE
+	mob_traits = list(/datum/bioweapons_trait/venom_glands,/datum/bioweapons_trait/ability/cocoon)
 
 /mob/living/simple_animal/hostile/poison/giant_spider/Topic(href, href_list)
 	if(href_list["activate"])

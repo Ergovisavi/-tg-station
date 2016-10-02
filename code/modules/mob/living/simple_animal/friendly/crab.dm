@@ -20,6 +20,7 @@
 	var/obj/item/inventory_head
 	var/obj/item/inventory_mask
 	gold_core_spawnable = 2
+	mob_traits = list(/datum/bioweapons_trait/defense_specialization)
 
 /mob/living/simple_animal/crab/Life()
 	..()
