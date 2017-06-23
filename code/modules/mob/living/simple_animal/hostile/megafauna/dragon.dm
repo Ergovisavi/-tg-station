@@ -128,7 +128,7 @@ Difficulty: Medium
 			new /obj/effect/temp_visual/target(turf)
 
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/fire_walls()
-	playsound(get_turf(src),'sound/magic/fleshtostone.ogg', 200, 1)
+	playsound(get_turf(src),'sound/magic/fireball.ogg', 200, 1)
 
 	for(var/d in GLOB.cardinal)
 		INVOKE_ASYNC(src, .proc/fire_wall, d)
@@ -258,6 +258,7 @@ Difficulty: Medium
 	density = TRUE
 	sleep(1)
 	swooping &= ~SWOOP_DAMAGEABLE
+	SetRecoveryTime(5)
 
 /mob/living/simple_animal/hostile/megafauna/dragon/AltClickOn(atom/movable/A)
 	if(!istype(A))
@@ -316,7 +317,7 @@ Difficulty: Medium
 	for(var/mob/living/L in T.contents)
 		if(istype(L, /mob/living/simple_animal/hostile/megafauna/dragon))
 			continue
-		if(!islist(flame_hit) || !flame_hit[L])
+		if(islist(flame_hit) && !flame_hit[L])
 			L.adjustFireLoss(40)
 			to_chat(L, "<span class='userdanger'>You're hit by the drake's fire breath!</span>")
 			flame_hit[L] = TRUE

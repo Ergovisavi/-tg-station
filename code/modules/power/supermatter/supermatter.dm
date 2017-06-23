@@ -385,7 +385,7 @@
 
 /obj/machinery/power/supermatter_shard/bullet_act(obj/item/projectile/Proj)
 	var/turf/L = loc
-	if(!istype(L))		// We don't run process() when we are in space
+	if(!istype(L) || isspaceturf(L))		// We don't run process() when we are in space
 		return FALSE	// This stops people from being able to really power up the supermatter
 				// Then bring it inside to explode instantly upon landing on a valid turf.
 	if(!istype(Proj.firer, /obj/machinery/power/emitter))
@@ -544,7 +544,7 @@
 			var/atom/movable/pulled_object = P
 			if(ishuman(P))
 				var/mob/living/carbon/human/H = P
-				H.apply_effect(2, WEAKEN, 0)
+				H.apply_effect(40, KNOCKDOWN, 0)
 			if(pulled_object && !pulled_object.anchored && !ishuman(P))
 				step_towards(pulled_object,center)
 				step_towards(pulled_object,center)
